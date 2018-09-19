@@ -134,3 +134,34 @@ with open("twitter-banned6.txt") as f:
 newFile6.close()
 
 
+#file 8 guessable replacements (more of them)
+
+newFile3 = open("twitter-banned8.txt", "w")
+
+with open("twitter-banned7.txt") as f:
+    for data in f.readlines():
+        replacement = {
+            'a' : '@',
+            'e' : '3',
+            'o' : '0',
+            's' : '5',
+            'l' : '1',
+            't' : '7',
+            'h' : 'H',
+            'p' : 'P',
+            'w' : 'W',
+            'd' : 'D',
+            'r' : 'R',
+            'n' : 'N'
+        }
+
+        newData = ""
+        for c in data.strip():
+            if (c in replacement.keys()):
+                newData += replacement[c]
+            else:
+                newData += c
+        newData += '\n' 
+        newFile3.write(newData)
+
+newFile3.close()
